@@ -1,0 +1,71 @@
+dbt lsversion: 2
+
+sources:
+  - name: fractory
+    schema: analytics_engineer_test_task
+    database: aws-rds-111
+    tables:
+      - name: orders
+        columns:
+          - name: order_id
+            data_type: int64
+          - name: status
+            data_type: string
+          - name: is_cancelled
+            data_type: boolean
+          - name: customer_id
+            data_type: int64
+          - name: manufacturer_id
+            data_type: int64
+          - name: customer_price
+            data_type: float64
+          - name: manufacturer_price
+            data_type: float64
+          - name: shipping_price
+            data_type: float64
+          - name: markup
+            data_type: float64
+          - name: account_manager_country
+            data_type: string
+          - name: created_at
+            data_type: timestamp
+          - name: in_production_at
+            data_type: timestamp
+
+      - name: parts
+        columns:
+          - name: order_part_id
+            data_type: int64
+          - name: order_id
+            data_type: int64
+          - name: selected_process_type
+            data_type: string
+          - name: material_name
+            data_type: string
+          - name: material_type
+            data_type: string
+          - name: weight_g
+            data_type: float64
+          - name: quantity
+            data_type: int64
+          - name: manufacturer_price_eur
+            data_type: float64
+          - name: has_bending
+            data_type: int64
+          - name: has_surface_coating
+            data_type: boolean
+          - name: has_insert_operations
+            data_type: boolean
+          - name: bends_count
+            data_type: int64
+          - name: created_at
+            data_type: timestamp
+
+      - name: parts_surface_finish_config
+        columns:
+          - name: order_part_id
+            data_type: int64
+          - name: process_name
+            data_type: string
+          - name: process_config
+            data_type: string
